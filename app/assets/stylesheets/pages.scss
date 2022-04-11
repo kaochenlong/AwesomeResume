@@ -1,3 +1,33 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.flash {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.flash-notice {
+  background-color: gray;
+}
+
+.flash-alert {
+  background-color: red;
+}
+
+.fields {
+  margin: 4px 0px;
+}
+
+.field_with_errors {
+  display: inline-block;
+
+  label {
+    color: red;
+  }
+
+  input[type="text"],
+  textarea {
+    border: 1px solid red;
+  }
+}
