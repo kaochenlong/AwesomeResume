@@ -9,4 +9,5 @@ class Resume < ApplicationRecord
       ["發佈", "published"],
     ]
   end
+
 end

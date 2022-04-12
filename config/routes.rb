@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get "/resumes", to: "resumes#index"
-  get "/resumes/new", to: "resumes#new", as: "new_resume"
-  post "/resumes", to: "resumes#create"
+  resources :resumes
 
   post "/", to: "pages#home"
 
-  root "pages#home"
+  root "resumes#index"
 end
