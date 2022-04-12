@@ -31,3 +31,31 @@
     border: 1px solid red;
   }
 }
+
+nav.navbar {
+  display: flex;
+  background-color: white;
+  color: black;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px dotted gray;
+
+  .brand {
+    font-size: 1.2em;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-right: 4px;
+      margin-left: 4px;
+    }
+  }
+}
