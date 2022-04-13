@@ -7,24 +7,24 @@ class User < ApplicationRecord
 
   before_save :encrypt_password
 
+  def self.login(user_data)
+    account = user_data[:account]
+    password = user_data[:password]
+
+    if account && password
+      user = find_by("email = ? OR username = ?", account, account)
+      if user && user.password == Enigma::Encoder.encode_password(password)
+        user
+      else
+        nil
+      end
+    else
+      nil
+    end
+  end
+
   private
     def encrypt_password
-      self.password = encode_password(self.password)
-    end
-
-    def encode_password(pw)
-      Digest::SHA1.hexdigest(salted_string(pw))
-    end
-
-    def salted_string(str)
-      stuffing_chars = ["x", "y", "j", "a", "k", "z"]
-
-      part_a = str.chars[0..5].map.with_index { |v, i|
-        v + stuffing_chars[i]
-      }.join
-
-      part_b = str.chars[6..].join
-
-      "z#{part_a}#{part_b}y"
+      self.password = Enigma::Encoder.encode_password(self.password)
     end
 end
