@@ -1,11 +1,16 @@
 class User < ApplicationRecord
+  # validations
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true,
                        confirmation: true,
                        length: { minimum: 6}
 
-  before_save :encrypt_password
+  # relationships
+  has_many :resumes
+
+  # callbacks
+  before_create :encrypt_password
 
   def self.login(user_data)
     account = user_data[:account]
