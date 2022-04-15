@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get :sign_in
   end
 
-  resources :sessions, only: [:create, :destroy]
+  resource :sessions, only: [:create, :destroy]
 
   root "resumes#index"
 end

@@ -2,6 +2,7 @@ class ResumesController < ApplicationController
   before_action :find_resume, only: [:show, :edit, :update, :destroy]
 
   def index
+    # render html: current_user
     @resumes = Resume.all
   end
 
@@ -47,4 +48,5 @@ class ResumesController < ApplicationController
     def find_resume
       @resume = Resume.find(params[:id])
     end
+
 end
