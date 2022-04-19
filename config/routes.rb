@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     collection do
       get :my
     end
+
+    member do
+      patch :pin
+    end
   end
 
   resource :users, only: [:create] do

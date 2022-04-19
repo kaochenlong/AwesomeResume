@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_action :find_resume, only: [:show]
-  before_action :find_my_resume, only: [:edit, :update, :destroy]
+  before_action :find_my_resume, only: [:edit, :update, :destroy, :pin]
   before_action :authenticate_user, except: [:index, :show]
 
   def index
@@ -42,6 +42,13 @@ class ResumesController < ApplicationController
   def destroy
     @resume.destroy
     redirect_to resumes_path, notice: "已刪除"
+  end
+
+  def pin
+    current_user.resumes.update_all("pinned = false")
+    @resume.update(pinned: true)
+
+    redirect_to my_resumes_path, notice: "已設定預設履歷"
   end
 
   private
