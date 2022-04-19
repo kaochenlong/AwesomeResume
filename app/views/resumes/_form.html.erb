@@ -6,7 +6,9 @@
 
   <div class="fields">
     <%= form.label :content, "內容" %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, data: {
+      controller: "markdown-editor"
+    } %>
   </div>
 
   <div class="fields">
