@@ -1,5 +1,5 @@
 <li>
-  <%= link_to resume.title, resume_path(resume) %>
+  <%= link_to resume.title, user_resume_path(user_id: resume.user.username, id: resume.slug) %>
   |
   <%= link_to "X", resume_path(resume), method: :delete, data: {
     confirm: "確定嗎？"

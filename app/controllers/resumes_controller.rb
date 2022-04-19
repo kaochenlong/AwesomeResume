@@ -52,13 +52,13 @@ class ResumesController < ApplicationController
 
     def find_resume
       if user_signed_in?
-        @resume = current_user.resumes.find(params[:id])
+        @resume = current_user.resumes.friendly.find(params[:id])
       else
-        @resume = Resume.published.find(params[:id])
+        @resume = Resume.published.friendly.find(params[:id])
       end
     end
 
     def find_my_resume
-      @resume = current_user.resumes.find(params[:id])
+      @resume = current_user.resumes.friendly.find(params[:id])
     end
 end

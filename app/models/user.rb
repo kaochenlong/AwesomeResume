@@ -12,6 +12,10 @@ class User < ApplicationRecord
   # callbacks
   before_create :encrypt_password
 
+  def default_resume
+    resumes.last
+  end
+
   def self.login(user_data)
     account = user_data[:account]
     password = user_data[:password]
