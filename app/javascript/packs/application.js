@@ -4,6 +4,7 @@ import * as ActiveStorage from "@rails/activestorage"
 
 import "channels"
 import "scripts"
+import "styles"
 import "controllers"
 
 Rails.start()
