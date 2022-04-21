@@ -4,7 +4,7 @@ class ResumesController < BaseController
   before_action :authenticate_user, except: %i[index show]
 
   def index
-    @resumes = Resume.published
+    @resumes = authorize Resume.published
   end
 
   def my
