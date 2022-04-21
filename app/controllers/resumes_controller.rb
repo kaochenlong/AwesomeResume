@@ -1,4 +1,4 @@
-class ResumesController < ApplicationController
+class ResumesController < BaseController
   before_action :find_resume, only: [:show]
   before_action :find_my_resume, only: %i[edit update destroy pin]
   before_action :authenticate_user, except: %i[index show]

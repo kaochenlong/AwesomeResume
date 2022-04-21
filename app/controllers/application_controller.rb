@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?, :current_user
 
   private
+
     def user_signed_in?
       session[:thankyou9527].present?
     end
@@ -19,8 +20,6 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate_user
-      if not user_signed_in?
-        redirect_to sign_in_users_path
-      end
+      redirect_to sign_in_users_path unless user_signed_in?
     end
 end

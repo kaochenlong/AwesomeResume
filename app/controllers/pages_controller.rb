@@ -1,4 +1,3 @@
-class PagesController < ApplicationController
-  def home
-  end
+class PagesController < BaseController
+  def home; end
 end
