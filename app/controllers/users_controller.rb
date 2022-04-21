@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < BaseController
   def default_resume
     @user = User.find_by!(username: params[:user_id])
@@ -22,7 +24,7 @@ class UsersController < BaseController
 
   private
 
-    def user_params
-      params.require(:user).permit(:email, :username, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:email, :username, :password, :password_confirmation)
+  end
 end

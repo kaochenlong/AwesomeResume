@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < BaseController
   def create
     user = User.login(params[:user])

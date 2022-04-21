@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ResumesController < BaseController
   before_action :find_resume, only: [:show]
   before_action :find_my_resume, only: %i[edit update destroy pin]

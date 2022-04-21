@@ -53,15 +53,15 @@ class ApplicationPolicy
 
   private
 
-    def internal_users
-      user && user.role.in?(["admin", "staff"])
-    end
+  def internal_users
+    user&.role.in?(%w[admin staff])
+  end
 
-    def vendor
-      user && user.role == "vendor"
-    end
+  def vendor
+    user && user.role == 'vendor'
+  end
 
-    def interviewee
-      user && user.role == "user"
-    end
+  def interviewee
+    user && user.role == 'user'
+  end
 end
