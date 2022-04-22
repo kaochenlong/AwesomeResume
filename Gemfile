@@ -19,9 +19,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'friendly_id', '~> 5.4'
 gem 'image_processing', '~> 1.2'
 gem 'pundit', '~> 2.2'
+gem 'net-smtp', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 5.1'
+  gem "factory_bot_rails", "~> 6.2"
+  gem "faker", "~> 2.20"
 end
 
 group :development do
@@ -37,3 +41,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
