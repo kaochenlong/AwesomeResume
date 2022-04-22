@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get '/@:user_id', to: 'users#default_resume'
   get '/@:user_id/:id', to: 'resumes#show', as: 'user_resume'

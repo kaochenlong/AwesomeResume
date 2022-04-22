@@ -22,10 +22,10 @@ class User < ApplicationRecord
     account = user_data[:account]
     password = user_data[:password]
 
-    if account && password
-      user = find_by('email = ? OR username = ?', account, account)
-      user if user && user.password == Enigma::Encoder.encode_password(password)
-    end
+    return unless account && password
+
+    user = find_by('email = ? OR username = ?', account, account)
+    user if user && user.password == Enigma::Encoder.encode_password(password)
   end
 
   private
