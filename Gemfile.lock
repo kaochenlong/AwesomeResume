@@ -248,7 +248,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
-  capybara (>= 3.26)
+  capybara (~> 3.36)
   factory_bot_rails (~> 6.2)
   faker (~> 2.20)
   foreman (~> 0.87.2)
