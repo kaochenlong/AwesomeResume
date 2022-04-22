@@ -6,7 +6,7 @@ class ResumesController < BaseController
   before_action :authenticate_user, except: %i[index show]
 
   def index
-    if current_user.role == 'user'
+    if user_signed_in? && current_user.role == 'user'
       redirect_to my_resumes_path
     else
       @resumes = authorize Resume.published

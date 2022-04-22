@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_secure_password
+
   # validations
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
@@ -10,9 +12,6 @@ class User < ApplicationRecord
 
   # relationships
   has_many :resumes
-
-  # callbacks
-  before_create :encrypt_password
 
   def default_resume
     resumes.last
@@ -25,12 +24,6 @@ class User < ApplicationRecord
     return unless account && password
 
     user = find_by('email = ? OR username = ?', account, account)
-    user if user && user.password == Enigma::Encoder.encode_password(password)
-  end
-
-  private
-
-  def encrypt_password
-    self.password = Enigma::Encoder.encode_password(password)
+    user.authenticate(password)
   end
 end
