@@ -1,5 +1,5 @@
 /*
  * require_tree .
- *= require "pages"
- *= require_self
+ * require "pages"
+ * require_self
  */
