@@ -11,18 +11,16 @@ gem 'rails', '~> 6.1.5'
 gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
-
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'friendly_id', '~> 5.4'
 gem 'image_processing', '~> 1.2'
 gem 'net-smtp', require: false
 gem 'pundit', '~> 2.2'
 gem 'rubocop', '~> 1.28', require: false
+
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

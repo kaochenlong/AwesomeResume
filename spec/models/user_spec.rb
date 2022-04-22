@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
     end
 
     it '註冊時密碼會加密' do
-      expect(user.password.length).to be 40
+      expect(user.password_digest.length).to be 60
     end
   end
 end
