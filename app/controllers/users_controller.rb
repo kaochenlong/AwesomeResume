@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < BaseController
+  layout 'user', only: %i[sign_up sign_in]
+
   def default_resume
     @user = User.find_by!(username: params[:user_id])
     @resume = @user.default_resume
