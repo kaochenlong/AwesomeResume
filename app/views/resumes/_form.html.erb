@@ -1,25 +1,34 @@
 <%= form_with(model: resume) do |form| %>
-  <div class="fields">
+  <div class="control">
     <%= form.label :title, "標題" %>
-    <%= form.text_field :title, autocomplete: "off", autofocus: true %>
+    <div class="col-span-4">
+      <%= form.text_field :title, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="fields">
-    <%= form.label :mugshot, "照片" %>
-    <%= form.file_field :mugshot %>
-  </div>
-
-  <div class="fields">
-    <%= form.label :content, "內容" %>
-    <%= form.text_area :content, data: {
-      controller: "markdown-editor"
-    } %>
-  </div>
-
-  <div class="fields">
+  <div class="control">
     <%= form.label :status, "狀態" %>
-    <%= form.select :status, Resume.all_status %>
+    <div class="col-span-4">
+      <%= form.select :status, Resume.all_status %>
+    </div>
   </div>
+
+  <div class="control">
+    <%= form.label :mugshot, "照片" %>
+    <div class="col-span-4">
+      <%= form.file_field :mugshot %>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= form.label :content, "內容" %>
+    <div class="col-span-5">
+      <%= form.text_area :content, data: {
+        controller: "markdown-editor"
+      } %>
+    </div>
+  </div>
+
 
   <%= form.submit %>
 <% end %>

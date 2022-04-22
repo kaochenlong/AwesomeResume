@@ -24,6 +24,6 @@ class User < ApplicationRecord
     return unless account && password
 
     user = find_by('email = ? OR username = ?', account, account)
-    user.authenticate(password)
+    user && user.authenticate(password)
   end
 end

@@ -11,10 +11,12 @@
   </head>
 
   <body>
-    <main class="main">
-      <%= render "shared/flash" if flash %>
-      <%= render "shared/navbar" %>
-      <%= yield %>
-    </main>
+      <header>
+        <%= render "shared/navbar" %>
+      </header>
+      <main class="main">
+        <%= render "shared/flash" if flash %>
+        <%= yield %>
+      </main>
   </body>
 </html>

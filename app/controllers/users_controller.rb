@@ -20,7 +20,7 @@ class UsersController < BaseController
     if @user.save
       redirect_to root_path, notice: '會員註冊成功'
     else
-      render :sign_up
+      render :sign_up, layout: 'user'
     end
   end
 

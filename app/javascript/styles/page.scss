@@ -1,5 +1,9 @@
+body {
+  @apply mx-auto bg-white rounded-lg shadow max-w-7xl my-6;
+}
+
 main.main {
-  @apply mx-auto bg-white rounded-lg shadow-lg max-w-7xl p-10 my-7;
+  @apply p-10;
 }
 
 h1.heading {
@@ -7,5 +11,9 @@ h1.heading {
 }
 
 a {
-  @apply underline hover:text-rose-500 underline-offset-4;
+  @apply underline hover:no-underline underline-offset-4;
+}
+
+a.action {
+  @apply px-3 py-2 rounded bg-rose-500 text-rose-50 no-underline;
 }

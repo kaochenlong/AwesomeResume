@@ -1,28 +1,36 @@
 <h1 class="heading">註冊</h1>
 
 <%= form_with(model: @user) do |form| %>
-  <div class="field">
+  <div class="control">
     <%= form.label :email, "Email" %>
-    <%= form.email_field :email, autocomplete: "off" %>
+    <div class="col-span-2">
+      <%= form.email_field :email, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
+  <div class="control">
     <%= form.label :username, "帳號" %>
-    <%= form.text_field :username, autocomplete: "off" %>
+    <div class="col-span-2">
+      <%= form.text_field :username, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
+  <div class="control">
     <%= form.label :password, "密碼" %>
-    <%= form.password_field :password %>
+    <div class="col-span-2">
+      <%= form.password_field :password %>
+    </div>
   </div>
 
-  <div class="field">
+  <div class="control">
     <%= form.label :password_confirmation, "密碼確認" %>
-    <%= form.password_field :password_confirmation %>
+    <div class="col-span-2">
+      <%= form.password_field :password_confirmation %>
+    </div>
   </div>
   <%= form.submit "註冊" %>
 <% end %>
 
-<footer class="mt-4 text-gray-600">
+<footer class="mt-8 text-gray-600">
   已經有帳號了嗎？現在就<%= link_to "登入", sign_in_users_path %>吧！
 </footer>
