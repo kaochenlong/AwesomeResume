@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-gray-50">
   <head>
-    <title>MyResume</title>
+    <title>ASTRO Resume</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,9 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <%= render "shared/flash" if flash %>
-    <%= yield %>
+    <main class="mx-auto bg-white max-w-7xl">
+      <%= render "shared/flash" if flash %>
+      <%= yield %>
+    </main>
   </body>
 </html>
