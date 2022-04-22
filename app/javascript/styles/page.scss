@@ -1,0 +1,11 @@
+main.main {
+  @apply mx-auto bg-white rounded-lg shadow-lg max-w-7xl p-10 my-8;
+}
+
+h1.heading {
+  @apply text-5xl font-thin mb-6;
+}
+
+a {
+  @apply underline hover:text-rose-500 underline-offset-4;
+}

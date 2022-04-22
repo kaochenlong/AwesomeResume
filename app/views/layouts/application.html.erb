@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <main class="mx-auto bg-white max-w-7xl">
+    <main class="main">
       <%= render "shared/flash" if flash %>
+      <%= render "shared/navbar" %>
       <%= yield %>
     </main>
   </body>

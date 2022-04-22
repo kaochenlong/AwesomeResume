@@ -1,15 +1,18 @@
 <nav class="navbar">
-  <div class="brand"><%= link_to "厲害的履歷", root_path %></div>
+  <div class="brand">
+    <%= link_to 'ASTRO Resume', root_path %>
+  </div>
+
   <ul class="actions">
     <% if user_signed_in? %>
       <li><%= current_user.email %></li>
       <% if policy(:resume).new? %>
-      <li><%= link_to "我的履歷", my_resumes_path %></li>
+      <li><%= link_to '我的履歷', my_resumes_path %></li>
       <% end %>
-      <li><%= link_to "登出", sessions_path, method: "delete" %></li>
+      <li><%= link_to '登出', sessions_path, method: :delete, data: { confirm: '確認登出？'} %></li>
     <% else %>
-      <li><%= link_to "註冊", sign_up_users_path %></li>
-      <li><%= link_to "登入", sign_in_users_path %></li>
+      <li><%= link_to '註冊', sign_up_users_path %></li>
+      <li><%= link_to '登入', sign_in_users_path %></li>
     <% end %>
   </ul>
 </nav>
