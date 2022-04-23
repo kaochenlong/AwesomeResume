@@ -9,6 +9,13 @@
   </div>
 
   <div class="control">
+    <%= form.label :name, "姓名" %>
+    <div class="col-span-2">
+      <%= form.text_field :name, autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="control">
     <%= form.label :username, "帳號" %>
     <div class="col-span-2">
       <%= form.text_field :username, autocomplete: "off" %>
