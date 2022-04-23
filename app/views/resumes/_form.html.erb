@@ -15,7 +15,7 @@
 
   <div class="control">
     <%= form.label :mugshot, "照片" %>
-    <div class="col-span-4">
+    <div class="col-span-5">
       <%= image_tag resume.mugshot.variant(resize_to_limit: [300, 200]), class: 'my-2' if resume.mugshot.attached? %>
       <%= form.file_field :mugshot %>
     </div>
@@ -33,12 +33,20 @@
 
   <div class="control">
     <%= form.label :attachments, "其它附件" %>
-    <div class="col-span-4">
-      <%= form.file_field :attachments %>
+    <div class="col-span-5">
+      <%= form.file_field :attachments, accept: "application/pdf, application/zip", multiple: true %>
       <span class="text-sm text-gray-500">說明：可上傳 zip 壓縮檔或 PDF 檔</span>
+
+      <% if resume.attachments.any? %>
+        <ul class="attachments">
+          <% resume.attachments.each do |attachment| %>
+            <li><%= file_icon(attachment.filename) %> <%= link_to attachment.filename, attachment %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
     </div>
   </div>
-
 
   <%= link_to "回上頁", my_resumes_path, class: "btn btn-cancel" %>
   <%= form.submit %>

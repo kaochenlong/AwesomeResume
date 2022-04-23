@@ -44,4 +44,12 @@ form {
   input[type="submit"] {
     @apply btn bg-rose-500 text-rose-50;
   }
+
+  .attachments {
+    @apply px-2 py-1 font-medium bg-gray-50;
+
+    li {
+      @apply my-1;
+    }
+  }
 }

@@ -28,6 +28,7 @@ module MyResume
     config.autoload_paths << "#{root}/app/lib"
 
     config.active_storage.variant_processor = :vips
+    config.active_storage.replace_on_assign_to_many = false
 
     config.generators do |g|
       g.stylesheets     false
