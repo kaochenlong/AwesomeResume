@@ -1,13 +1,17 @@
 <nav class="navbar">
-  <div class="flex items-center">
-    <div class="brand">
+  <div class="brand">
+    <div class="logo">
       <%= link_to 'ASTRO Resume', root_path, class: "no-underline" %>
     </div>
 
-    <ul class="flex ml-4">
+    <ul class="links">
+      <% if policy(:interview).new? %>
+        <li><%= link_to '面試大廳', '#' %></li>
+      <% end %>
+
       <% if policy(:user).manage? %>
-        <li class="mx-1"><%= link_to '廠商', admin_vendors_path %></li>
-        <li class="mx-1"><%= link_to '學員', '#' %></li>
+        <li><%= link_to '廠商', admin_vendors_path %></li>
+        <li><%= link_to '學員', '#' %></li>
       <% end %>
     </ul>
   </div>
@@ -20,9 +24,6 @@
       <% end %>
       <% if policy(:interview).create? %>
         <li><%= link_to '履歷', '#' %></li>
-      <% end %>
-      <% if policy(:interview).new? %>
-        <li><%= link_to '面試', '#' %></li>
       <% end %>
       <li><%= link_to '登出', sessions_path, method: :delete, data: { confirm: '確認登出？'} %></li>
     <% else %>
