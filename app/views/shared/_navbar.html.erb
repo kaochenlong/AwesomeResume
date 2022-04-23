@@ -7,7 +7,10 @@
     <% if user_signed_in? %>
       <li><%= current_user.email %></li>
       <% if policy(:resume).new? %>
-      <li><%= link_to '我的履歷', my_resumes_path %></li>
+        <li><%= link_to '我的履歷', my_resumes_path %></li>
+      <% end %>
+      <% if policy(:interview).new? %>
+        <li><%= link_to '面試', '#' %></li>
       <% end %>
       <li><%= link_to '登出', sessions_path, method: :delete, data: { confirm: '確認登出？'} %></li>
     <% else %>

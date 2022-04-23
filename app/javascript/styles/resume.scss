@@ -1,0 +1,7 @@
+.resume-list {
+  @apply space-y-12 grid grid-cols-2 gap-x-6;
+
+  .resume-card {
+    @apply space-y-4 bg-red-200;
+  }
+}

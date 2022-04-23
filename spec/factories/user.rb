@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :vendor, class: User do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
+    password_confirmation { password }
     username { Faker::Internet.username }
     role { 'vendor' }
   end
@@ -11,6 +12,7 @@ FactoryBot.define do
   factory :user do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
+    password_confirmation { password }
     username { Faker::Internet.username }
     role { 'user' }
   end

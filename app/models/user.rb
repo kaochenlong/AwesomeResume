@@ -6,9 +6,8 @@ class User < ApplicationRecord
   # validations
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
-  validates :password, presence: true,
-                       confirmation: true,
-                       length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, if: -> { password.present? }
+  validates :password_confirmation, presence: true, on: :create
 
   # relationships
   has_many :resumes
@@ -24,6 +23,6 @@ class User < ApplicationRecord
     return unless account && password
 
     user = find_by('email = ? OR username = ?', account, account)
-    user && user.authenticate(password)
+    user&.authenticate(password)
   end
 end
