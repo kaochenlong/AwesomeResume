@@ -14,6 +14,9 @@ class Resume < ApplicationRecord
   scope :published, -> { where(status: 'published') }
   scope :draft, -> { where(status: 'draft') }
 
+  # callbacks
+  before_create :set_as_default
+
   # relationships
   belongs_to :user
 
@@ -28,5 +31,9 @@ class Resume < ApplicationRecord
 
   def random_slug
     [*'a'..'z', *'0'..'9', '-', '_'].sample(10).join
+  end
+
+  def set_as_default
+    self.pinned = true if user.resumes.count.zero?
   end
 end

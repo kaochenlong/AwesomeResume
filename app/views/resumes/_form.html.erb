@@ -16,6 +16,7 @@
   <div class="control">
     <%= form.label :mugshot, "照片" %>
     <div class="col-span-4">
+      <%= image_tag resume.mugshot, class: 'my-2' if resume.mugshot.attached? %>
       <%= form.file_field :mugshot %>
     </div>
   </div>
