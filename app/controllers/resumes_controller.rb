@@ -63,7 +63,7 @@ class ResumesController < BaseController
     current_user.resumes.update_all('pinned = false')
     @resume.update(pinned: true)
 
-    redirect_to my_resumes_path, notice: '已設定預設履歷'
+    redirect_to my_resumes_path
   end
 
   private

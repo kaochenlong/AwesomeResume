@@ -11,7 +11,7 @@
 
       <% if policy(:user).manage? %>
         <li><%= link_to '廠商', admin_vendors_path %></li>
-        <li><%= link_to '學員', '#' %></li>
+        <li><%= link_to '學員', admin_users_path %></li>
       <% end %>
     </ul>
   </div>

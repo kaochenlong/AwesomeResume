@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :vendors, except: [:show]
+    resources :users, only: [:index]
   end
 
   root 'resumes#index'

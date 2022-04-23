@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   # scopes
   scope :vendors, -> { where(role: 'vendor') }
+  scope :students, -> { where(role: 'user') }
 
   def default_resume
     resumes.last

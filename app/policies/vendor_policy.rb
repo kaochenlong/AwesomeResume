@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VendorPolicy < ApplicationPolicy
   def index?
     internal_users

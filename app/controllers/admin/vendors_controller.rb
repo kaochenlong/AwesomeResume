@@ -2,7 +2,7 @@
 
 module Admin
   class VendorsController < ::BaseController
-    before_action :set_vendor, only: [:edit, :update, :destroy]
+    before_action :set_vendor, only: %i[edit update destroy]
     def index
       authorize :vendor
       @vendors = User.vendors
@@ -32,7 +32,7 @@ module Admin
       authorize :vendor
 
       if @vendor.update(vendor_params)
-        redirect_to edit_admin_vendor_path(@vendor), notice: "廠商資料已更新"
+        redirect_to edit_admin_vendor_path(@vendor), notice: '廠商資料已更新'
       else
         render :edit
       end
@@ -41,10 +41,11 @@ module Admin
     def destroy
       authorize :vendor
       @vendor.destroy
-      redirect_to admin_vendors_path, notice: "廠商資料已刪除"
+      redirect_to admin_vendors_path, notice: '廠商資料已刪除'
     end
 
     private
+
     def set_vendor
       @vendor = User.find(params[:id])
     end
