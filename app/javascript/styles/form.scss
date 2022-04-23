@@ -46,7 +46,11 @@ form {
   }
 
   .attachments {
-    @apply px-2 py-1 font-medium bg-gray-50;
+    @apply px-2 py-1 font-medium rounded shadow-sm bg-gray-50;
+
+    svg {
+      @apply mr-1;
+    }
 
     li {
       @apply my-1;

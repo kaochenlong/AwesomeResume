@@ -1,12 +1,16 @@
 <nav class="navbar">
   <div class="brand">
     <div class="logo">
-      <%= link_to 'ASTRO Resume', root_path, class: "no-underline" %>
+      <%= link_to root_path, class: "no-underline" do %>
+        <i class="fa-solid fa-people-group"></i> ASTRO
+      <% end %>
     </div>
 
     <ul class="links">
       <% if policy(:interview).new? %>
-        <li><%= link_to '面試大廳', '#' %></li>
+        <li><%= link_to '#', data: { confirm: "準備好要開始面試了嗎？" } do %>
+          <i class="fa-solid fa-video"></i> 線上快速面試
+        <% end %></li>
       <% end %>
 
       <% if policy(:user).manage? %>
@@ -25,7 +29,11 @@
       <% if policy(:interview).create? %>
         <li><%= link_to '履歷', '#' %></li>
       <% end %>
-      <li><%= link_to '登出', sessions_path, method: :delete, data: { confirm: '確認登出？'} %></li>
+      <li><%= link_to sessions_path, method: :delete, data: { confirm: '確認登出？'} do %>
+       登出 <i class="fa-solid fa-right-from-bracket"></i>
+      <% end %>
+      </li>
+
     <% else %>
       <li><%= link_to '註冊', sign_up_users_path %></li>
       <li><%= link_to '登入', sign_in_users_path %></li>
