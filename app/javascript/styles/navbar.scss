@@ -12,7 +12,7 @@ nav.navbar {
       @apply flex ml-4;
 
       li {
-        @apply mx-1 font-medium;
+        @apply mx-2 font-medium;
       }
     }
   }
@@ -21,7 +21,7 @@ nav.navbar {
     @apply flex items-center;
 
     li {
-      @apply mx-1 font-medium;
+      @apply mx-2 font-medium;
     }
   }
 }

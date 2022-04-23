@@ -13,6 +13,9 @@ class User < ApplicationRecord
   # relationships
   has_many :resumes
 
+  # scopes
+  scope :vendors, -> { where(role: 'vendor') }
+
   def default_resume
     resumes.last
   end

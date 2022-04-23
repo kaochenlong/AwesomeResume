@@ -3,14 +3,17 @@
 module Admin
   class VendorsController < ::BaseController
     def index
-      @vendors = User.where(role: 'vendor')
+      authorize :vendor
+      @vendors = User.vendors
     end
 
     def new
+      authorize :vendor
       @vendor = User.new
     end
 
     def create
+      authorize :vendor
       @vendor = User.new(vendor_params)
 
       if @vendor.save
@@ -20,10 +23,21 @@ module Admin
       end
     end
 
-    private
+    def edit
+      authorize :vendor
+    end
 
+    def update
+      authorize :vendor
+    end
+
+    def destroy
+      authorize :vendor
+    end
+
+    private
     def vendor_params
-      params.require(:user).permit(:email, :username, :password, :password_confirmation).merge(role: 'vendor')
+      params.require(:user).permit(:email, :name, :username, :password, :password_confirmation).merge(role: 'vendor')
     end
   end
 end
