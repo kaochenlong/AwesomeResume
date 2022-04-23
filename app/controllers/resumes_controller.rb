@@ -9,21 +9,24 @@ class ResumesController < BaseController
     if user_signed_in? && current_user.role == 'user'
       redirect_to my_resumes_path
     else
-      @resumes = authorize Resume.published
+      @resumes = Resume.published
     end
   end
 
   def my
+    authorize :resume, :create?
     @resumes = current_user.resumes
   end
 
   def show; end
 
   def new
+    authorize :resume
     @resume = Resume.new
   end
 
   def create
+    authorize :resume
     @resume = current_user.resumes.new(resume_params)
 
     if @resume.save
@@ -33,9 +36,13 @@ class ResumesController < BaseController
     end
   end
 
-  def edit; end
+  def edit
+    authorize :resume
+  end
 
   def update
+    authorize :resume
+
     if @resume.update(resume_params)
       redirect_to my_resumes_path, notice: '更新成功'
     else
@@ -44,11 +51,15 @@ class ResumesController < BaseController
   end
 
   def destroy
+    authorize :resume
+
     @resume.destroy
     redirect_to resumes_path, notice: '已刪除'
   end
 
   def pin
+    authorize :resume, :create?
+
     current_user.resumes.update_all('pinned = false')
     @resume.update(pinned: true)
 
@@ -57,7 +68,6 @@ class ResumesController < BaseController
 
   private
 
-  # Strong Parameters
   def resume_params
     params.require(:resume).permit(:title, :content, :status, :mugshot)
   end

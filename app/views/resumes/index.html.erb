@@ -1,5 +1,3 @@
-<h1>Resume</h1>
-
-<ul>
-  <%= render @resumes %>
-</ul>
+<section class="resumes">
+  <%= render @resumes if policy(:resume).index? %>
+</section>

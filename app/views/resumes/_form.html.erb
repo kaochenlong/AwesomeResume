@@ -26,9 +26,10 @@
       <%= form.text_area :content, data: {
         controller: "markdown-editor"
       } %>
+      <span class="text-sm text-gray-500">說明：可使用 Markdown 語法編寫</span>
     </div>
   </div>
 
-
+  <%= link_to "回上頁", my_resumes_path, class: "btn btn-cancel" %>
   <%= form.submit %>
 <% end %>

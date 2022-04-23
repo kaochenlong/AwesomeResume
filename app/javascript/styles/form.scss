@@ -1,3 +1,7 @@
+.btn {
+  @apply cursor-pointer px-3 py-2 rounded;
+}
+
 form {
   @apply space-y-8;
 
@@ -28,6 +32,7 @@ form {
   input[type="password"] {
     @apply w-full border border-gray-300 rounded px-3 py-2;
   }
+
   select {
     @apply shadow-sm w-full border border-gray-300 py-2 px-3 rounded-md;
   }
@@ -37,6 +42,6 @@ form {
   }
 
   input[type="submit"] {
-    @apply cursor-pointer px-3 py-2 bg-rose-500 text-rose-50 rounded;
+    @apply btn bg-rose-500 text-rose-50;
   }
 }
