@@ -5,6 +5,7 @@ class Resume < ApplicationRecord
   friendly_id :random_slug, use: :slugged
 
   has_one_attached :mugshot
+  has_many_attached :attachments
 
   # validations
   validates :title, presence: true

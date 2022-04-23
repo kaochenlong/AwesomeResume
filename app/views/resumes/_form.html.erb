@@ -16,7 +16,7 @@
   <div class="control">
     <%= form.label :mugshot, "照片" %>
     <div class="col-span-4">
-      <%= image_tag resume.mugshot, class: 'my-2' if resume.mugshot.attached? %>
+      <%= image_tag resume.mugshot.variant(resize_to_limit: [300, 200]), class: 'my-2' if resume.mugshot.attached? %>
       <%= form.file_field :mugshot %>
     </div>
   </div>
@@ -30,6 +30,15 @@
       <span class="text-sm text-gray-500">說明：可使用 Markdown 語法編寫</span>
     </div>
   </div>
+
+  <div class="control">
+    <%= form.label :attachments, "其它附件" %>
+    <div class="col-span-4">
+      <%= form.file_field :attachments %>
+      <span class="text-sm text-gray-500">說明：可上傳 zip 壓縮檔或 PDF 檔</span>
+    </div>
+  </div>
+
 
   <%= link_to "回上頁", my_resumes_path, class: "btn btn-cancel" %>
   <%= form.submit %>

@@ -44,7 +44,7 @@ class ResumesController < BaseController
     authorize :resume
 
     if @resume.update(resume_params)
-      redirect_to my_resumes_path, notice: '更新成功'
+      redirect_to edit_resume_path(@resume), notice: '更新成功'
     else
       render :edit
     end
@@ -69,7 +69,7 @@ class ResumesController < BaseController
   private
 
   def resume_params
-    params.require(:resume).permit(:title, :content, :status, :mugshot)
+    params.require(:resume).permit(:title, :content, :status, :mugshot, attachments: [])
   end
 
   def find_resume
