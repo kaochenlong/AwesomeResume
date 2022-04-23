@@ -28,10 +28,15 @@ class Resume < ApplicationRecord
     ]
   end
 
+  # ref: https://stackoverflow.com/questions/34707159/how-to-make-case-sensitive-urls-with-rails-friendly-id
+  def normalize_friendly_id(value)
+    value.to_s.parameterize(preserve_case: true)
+  end
+
   private
 
   def random_slug
-    [*'a'..'z', *'0'..'9', '-', '_'].sample(10).join
+    [*'A'..'Z', *'a'..'z', *'0'..'9'].sample(10).join
   end
 
   def set_as_default
