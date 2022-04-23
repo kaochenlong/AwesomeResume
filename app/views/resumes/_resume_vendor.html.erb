@@ -1,0 +1,15 @@
+<article class="resume-card">
+  <header>
+    <%= resume.user.username %>
+  </header>
+
+  <% if resume.mugshot.attached? %>
+    <%= image_tag resume.mugshot.variant(resize_to_limit: [300, 200])%>
+  <% else %>
+    <%= image_pack_tag "placeholder-image.png" %>
+  <% end %>
+
+  <footer class="actions">
+    <%= link_to "檢視", '#' %>
+  </footer>
+</article>

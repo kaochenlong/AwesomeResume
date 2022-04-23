@@ -9,6 +9,9 @@
       <% if policy(:resume).new? %>
         <li><%= link_to '我的履歷', my_resumes_path %></li>
       <% end %>
+      <% if policy(:interview).create? %>
+        <li><%= link_to '履歷', '#' %></li>
+      <% end %>
       <% if policy(:interview).new? %>
         <li><%= link_to '面試', '#' %></li>
       <% end %>
