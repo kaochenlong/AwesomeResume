@@ -1,4 +1,6 @@
-<%= form_with(model: vendor, method: "post", url: admin_vendors_path) do |form| %>
+<h1 class="heading">編輯廠商</h1>
+
+<%= form_with(model: @vendor, url: admin_vendor_path(@vendor)) do |form| %>
   <div class="control">
     <%= form.label :email, "Email" %>
     <div class="col-span-4">
@@ -34,5 +36,6 @@
     </div>
   </div>
 
-  <%= form.submit %>
+  <%= link_to "回上頁", admin_vendors_path, class: "btn btn-cancel" %>
+  <%= form.submit "更新廠商" %>
 <% end %>

@@ -1,5 +1,5 @@
 <li class="vendor">
-  <span class="name"><%= vendor.name %></span>
+  <span class="name"><%= link_to vendor.name, edit_admin_vendor_path(vendor) %></span>
   <span class="email"><%= vendor.email %></span>
   <span class="actions">
     <%= link_to "編輯", edit_admin_vendor_path(vendor) %>
