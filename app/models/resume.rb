@@ -20,6 +20,8 @@ class Resume < ApplicationRecord
 
   # relationships
   belongs_to :user
+  has_many :vendor_resumes
+  has_many :vendors, through: :vendor_resumes
 
   def self.all_status
     [

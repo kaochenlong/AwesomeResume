@@ -26,5 +26,16 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :resumes, only: [] do
+        member do
+          post :like
+          delete :unlike
+        end
+      end
+    end
+  end
+
   root 'resumes#index'
 end

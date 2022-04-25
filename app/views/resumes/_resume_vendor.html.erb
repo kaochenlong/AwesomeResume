@@ -9,7 +9,14 @@
     <%= image_pack_tag "placeholder-image.png" %>
   <% end %>
 
-  <footer class="actions">
+  <footer class="flex justify-between actions">
     <%= link_to "檢視", '#' %>
+
+    <div data-controller="favorite-resume"
+         data-liked="<%= current_user.liked?(resume) %>"
+         data-resume-id="<%= resume.slug %>">
+      <a href="#" data-favorite-resume-target="like" data-action="click->favorite-resume#like">讚</a>
+      <a href="#" data-favorite-resume-target="unlike" data-action="click->favorite-resume#unlike">不讚</a>
+    </div>
   </footer>
 </article>
