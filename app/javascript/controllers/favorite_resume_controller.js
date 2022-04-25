@@ -1,5 +1,5 @@
 import { Controller } from "stimulus"
-import ax from "lib/http/axios"
+import Rails from "@rails/ujs"
 
 export default class extends Controller {
   static targets = ["like", "unlike"]
@@ -16,11 +16,15 @@ export default class extends Controller {
     e.preventDefault()
     const resumeID = this.element.dataset.resumeId
 
-    ax.post(`/api/v1/resumes/${resumeID}/like`).then(({ data }) => {
-      if (data.message === "added") {
-        this.likeTarget.style.display = "none"
-        this.unlikeTarget.style.display = "block"
-      }
+    Rails.ajax({
+      type: "post",
+      url: `/api/v1/resumes/${resumeID}/like`,
+      success: (data) => {
+        if (data.message === "added") {
+          this.likeTarget.style.display = "none"
+          this.unlikeTarget.style.display = "block"
+        }
+      },
     })
   }
 
@@ -28,11 +32,15 @@ export default class extends Controller {
     e.preventDefault()
     const resumeID = this.element.dataset.resumeId
 
-    ax.delete(`/api/v1/resumes/${resumeID}/unlike`).then(({ data }) => {
-      if (data.message === "removed") {
-        this.likeTarget.style.display = "block"
-        this.unlikeTarget.style.display = "none"
-      }
+    Rails.ajax({
+      type: "delete",
+      url: `/api/v1/resumes/${resumeID}/unlike`,
+      success: (data) => {
+        if (data.message === "removed") {
+          this.likeTarget.style.display = "block"
+          this.unlikeTarget.style.display = "none"
+        }
+      },
     })
   }
 }
