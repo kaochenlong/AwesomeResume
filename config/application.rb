@@ -26,6 +26,7 @@ module MyResume
   class Application < Rails::Application
     config.load_defaults 6.1
     config.autoload_paths << "#{root}/app/lib"
+    config.i18n.default_locale = :"zh-TW"
 
     config.active_storage.variant_processor = :vips
     config.active_storage.replace_on_assign_to_many = false
