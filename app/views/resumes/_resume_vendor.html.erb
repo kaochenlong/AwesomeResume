@@ -9,8 +9,9 @@
     <%= image_pack_tag "placeholder-image.png" %>
   <% end %>
 
-  <footer class="flex justify-between actions">
+  <footer class="flex items-center justify-between actions">
     <%= link_to "檢視", '#' %>
+    <%= link_to "課金", buy_resume_path(resume), method: "post" %>
 
     <div data-controller="favorite-resume"
          data-liked="<%= current_user.liked?(resume) %>"

@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :resumes
   has_many :vendor_resumes
   has_many :favorite_resumes, through: :vendor_resumes, source: :resume
+  has_many :orders
 
   # scopes
   scope :vendors, -> { where(role: 'vendor') }

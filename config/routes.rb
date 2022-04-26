@@ -11,6 +11,13 @@ Rails.application.routes.draw do
 
     member do
       patch :pin
+      post :buy
+    end
+  end
+
+  resources :orders, only: [] do
+    member do
+      get :checkout
     end
   end
 
