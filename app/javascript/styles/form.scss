@@ -42,7 +42,7 @@ form {
   }
 
   input[type="submit"] {
-    @apply btn bg-rose-500 text-rose-50;
+    @apply btn bg-rose-500 text-rose-50 disabled:opacity-60 disabled:cursor-default;
   }
 
   .attachments {

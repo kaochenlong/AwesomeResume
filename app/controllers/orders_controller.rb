@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def checkout
     @token = gateway.client_token.generate
+    @order = Order.friendly.find(params[:id])
   end
 
   private
