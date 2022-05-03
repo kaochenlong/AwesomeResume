@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/@:user_id/:id', to: 'resumes#show', as: 'user_resume'
 
   resources :resumes do
+    resources :comments, shallow: true, only: [:create, :destroy]
+
     collection do
       get :my
     end
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
     member do
       patch :pin
       post :buy
+      get :view
     end
   end
 

@@ -20,6 +20,11 @@ class ResumesController < BaseController
 
   def show; end
 
+  def view
+    @resume = Resume.published.friendly.find(params[:id])
+    @comment = Comment.new
+  end
+
   def new
     authorize :resume
     @resume = Resume.new
