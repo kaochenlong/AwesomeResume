@@ -28,7 +28,7 @@ export default class extends Controller {
             .requestPaymentMethod()
             .then(({ nonce }) => {
               this.setNonce(nonce)
-              // form.submit()
+              form.submit()
             })
             .catch((err) => {
               console.log(err)

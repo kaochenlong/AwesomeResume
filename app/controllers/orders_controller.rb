@@ -8,6 +8,19 @@ class OrdersController < ApplicationController
     @order = Order.friendly.find(params[:id])
   end
 
+  def pay
+    @order = Order.friendly.find(params[:id])
+    result = gateway.transaction.sale(
+      amount: @order.price,
+      payment_method_nonce: params[:nonce],
+    )
+    if result.success?
+      redirect_to root_path, notice: "ok"
+    else
+      redirect_to root_path, alert: "fail"
+    end
+  end
+
   private
 
   def gateway
