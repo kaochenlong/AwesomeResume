@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [] do
+  resources :orders, only: [:index] do
     member do
       get :checkout
       post :pay
+      delete :cancel
     end
   end
 

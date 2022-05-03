@@ -3,6 +3,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user
 
+  def index
+    @orders = current_user.orders
+  end
+
   def checkout
     @token = gateway.client_token.generate
     @order = Order.friendly.find(params[:id])
@@ -15,10 +19,18 @@ class OrdersController < ApplicationController
       payment_method_nonce: params[:nonce],
     )
     if result.success?
-      redirect_to root_path, notice: "ok"
+      @order.pay!
+      redirect_to orders_path, notice: "已付款成功"
     else
-      redirect_to root_path, alert: "fail"
+      @order.fail!
+      redirect_to orders_path, alert: "付款失敗: #{result.errors}"
     end
+  end
+
+  def cancel
+    @order = Order.friendly.find(params[:id])
+    @order.cancel!
+    redirect_to orders_path, notice: "訂單已取消"
   end
 
   private

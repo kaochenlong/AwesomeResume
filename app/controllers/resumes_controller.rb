@@ -9,7 +9,7 @@ class ResumesController < BaseController
     if user_signed_in? && current_user.role == 'user'
       redirect_to my_resumes_path
     else
-      @resumes = Resume.published.where(pinned: true)
+      @resumes = Resume.published.where(pinned: true).includes(:user)
     end
   end
 
