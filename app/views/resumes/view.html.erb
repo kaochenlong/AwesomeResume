@@ -1,25 +1,21 @@
 <h1 class="heading"><%= @resume.user.name %></h1>
 
 <section class="grid grid-cols-2 gap-4">
-  <article class="flex flex-col">
+  <article>
     <div class="bg-gray-50">
       <%= @resume.content %>
-    </div>
-    <div class="bg-rose-200">
-      <ul>
-      <% @resume.comments.each do |comment| %>
-        <li><%= comment.content %></li>
-      <% end %>
-      </ul>
     </div>
   </article>
   <section>
     <%= form_with(model: [@resume, @comment]) do |form| %>
       <div class="field">
-        <%= form.text_area :content, data: {controller: "markdown-editor"} %>
+        <%= form.label :content, "評論" %>
+        <%= form.text_area :content, class: "rounded px-2 py-1 border border-gray-300" %>
       </div>
-
       <%= form.submit %>
     <% end %>
+    <div>
+      <%= render @comments %>
+    </div>
   </section>
 </section>

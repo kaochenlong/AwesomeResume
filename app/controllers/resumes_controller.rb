@@ -23,6 +23,7 @@ class ResumesController < BaseController
   def view
     @resume = Resume.published.friendly.find(params[:id])
     @comment = Comment.new
+    @comments = @resume.comments.order(id: :desc)
   end
 
   def new
