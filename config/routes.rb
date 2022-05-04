@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       patch :pin
       post :buy
       get :view
+      patch :tag
     end
   end
 

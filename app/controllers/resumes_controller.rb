@@ -72,6 +72,13 @@ class ResumesController < BaseController
     redirect_to my_resumes_path
   end
 
+  def tag
+    resume = Resume.published.friendly.find(params[:id])
+    tag = params[:resume][:tag]
+    resume.update(tag: tag)
+    redirect_to view_resume_path(resume)
+  end
+
   def buy
     # 建立訂單
     resume = Resume.published.friendly.find(params[:id])

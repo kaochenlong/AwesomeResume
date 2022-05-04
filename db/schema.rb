@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_073433) do
+ActiveRecord::Schema.define(version: 2022_05_04_032049) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_073433) do
     t.string "slug"
     t.boolean "pinned", default: false
     t.datetime "deleted_at"
+    t.string "tag"
     t.index ["slug"], name: "index_resumes_on_slug", unique: true
     t.index ["user_id"], name: "index_resumes_on_user_id"
   end
