@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @resume.comments.new(comment_params)
 
     if @comment.save
-      redirect_to view_resume_path(@resume), notice: "成功新增留言"
+      # redirect_to view_resume_path(@resume), notice: "成功新增留言"
     else
       # flash[:alert] = "error!"
       render "resumes/view"

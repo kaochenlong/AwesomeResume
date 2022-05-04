@@ -7,14 +7,14 @@
     </div>
   </article>
   <section>
-    <%= form_with(model: [@resume, @comment]) do |form| %>
+    <%= form_with(model: [@resume, @comment], data: { remote: true }) do |form| %>
       <div class="field">
         <%= form.label :content, "評論" %>
         <%= form.text_area :content, class: "rounded px-2 py-1 border border-gray-300" %>
       </div>
       <%= form.submit %>
     <% end %>
-    <div>
+    <div class="comments">
       <%= render @comments %>
     </div>
   </section>
