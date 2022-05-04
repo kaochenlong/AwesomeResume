@@ -4,8 +4,9 @@
   <article>
 
     <%= form_with(model: @resume, url: tag_resume_path(@resume), method: "patch") do |form| %>
-      <%= form.text_field :tag %>
-      <%= form.submit "打標籤" %>
+      <%= form.label :tag, "標籤" %>
+      <%= form.text_field :tag, data: {controller: "tag"} %>
+      <%= form.submit "更新" %>
     <% end %>
 
     <div class="bg-gray-50">
